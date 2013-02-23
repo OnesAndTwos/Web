@@ -21,9 +21,9 @@ namespace OnesAndTwos.Web.Filters
             LazyInitializer.EnsureInitialized(ref _initializer, ref _isInitialized, ref _initializerLock);
         }
 
-        private class SimpleMembershipInitializer
+        private abstract class SimpleMembershipInitializer
         {
-            public SimpleMembershipInitializer()
+            protected SimpleMembershipInitializer()
             {
                 Database.SetInitializer<UsersContext>(null);
 
