@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Mvc">
+      <HintPath>..\packages\Mvc4Futures.4.0.20710.0\lib\net40\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -159,12 +162,13 @@
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NavigationConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="BootstrapSupport\ControlGroupExtensions.cs" />
-    <Compile Include="BootstrapSupport\HtmlHelpers\GlyphIcons.cs" />
-    <Compile Include="BootstrapSupport\HtmlHelpers\Paging.cs" />
-    <Compile Include="BootstrapSupport\ViewHelperExtensions.cs" />
+    <Compile Include="Bootstrap\ControlGroupExtensions.cs" />
+    <Compile Include="Bootstrap\HtmlHelpers\GlyphIcons.cs" />
+    <Compile Include="Bootstrap\HtmlHelpers\Paging.cs" />
+    <Compile Include="Bootstrap\ViewHelperExtensions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -172,6 +176,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
+    <Compile Include="NavigationRoutes\NamedRoute.cs" />
+    <Compile Include="NavigationRoutes\NavigationExtensions.cs" />
+    <Compile Include="NavigationRoutes\NavigationRouteConfigurationExtensions.cs" />
+    <Compile Include="NavigationRoutes\NavigationRouteFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +195,12 @@
     <Content Include="Assets\JS\Framework\bootstrap.js" />
     <Content Include="Assets\JS\Framework\bootstrap.min.js" />
     <Content Include="Assets\JS\Framework\html5shiv.js" />
+    <None Include="Assets\JS\Framework\jquery.validate-vsdoc.js" />
+    <Content Include="Assets\JS\Framework\jquery.validate.js" />
+    <Content Include="Assets\JS\Framework\jquery.validate.min.js" />
+    <Content Include="Assets\JS\Framework\jquery.validate.unobtrusive-custom-for-bootstrap.js" />
+    <Content Include="Assets\JS\Framework\jquery.validate.unobtrusive.js" />
+    <Content Include="Assets\JS\Framework\jquery.validate.unobtrusive.min.js" />
     <Content Include="Assets\JS\_references.js" />
     <Content Include="Assets\CSS\site.css" />
     <Content Include="favicon.ico" />
@@ -221,7 +236,12 @@
     <Content Include="Views\Shared\_Alerts.cshtml" />
     <Content Include="Views\Shared\_ValidationSummary.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\OnesAndTwos.Infrastructure.Common\OnesAndTwos.Infrastructure.Common.csproj">
+      <Project>{D5D77254-0755-40F9-A870-6FEEF976AF45}</Project>
+      <Name>OnesAndTwos.Infrastructure.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

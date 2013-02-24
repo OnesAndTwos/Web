@@ -16,6 +16,7 @@ namespace OnesAndTwos.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            NavigationConfig.RegisterRoutes(RouteTable.Routes);
             AuthConfig.RegisterAuth();
         }
     }

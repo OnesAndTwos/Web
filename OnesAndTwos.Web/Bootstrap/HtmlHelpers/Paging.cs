@@ -23,7 +23,7 @@ public ActionResult Index(int page = 1)
 }
 */
 
-namespace BootstrapSupport.HtmlHelpers
+namespace OnesAndTwos.Web.Bootstrap.HtmlHelpers
 {
     public static class PaginiationHelperExtensions
     {

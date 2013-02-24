@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
 
-namespace BootstrapSupport
+namespace OnesAndTwos.Web.Bootstrap
 {
     public static class DefaultScaffoldingExtensions
     {
