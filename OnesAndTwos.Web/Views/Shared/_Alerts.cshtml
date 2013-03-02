@@ -1,20 +1,19 @@
-﻿@using OnesAndTwos.Web.Bootstrap
+﻿@using OnesAndTwos.Infrastructure.Common.Extensions
+@using OnesAndTwos.Web.Support
 
-@if (TempData.ContainsKey(Alerts.ATTENTION))
+@if (Alerter.HasAlert(Alert.Attention))
 {
     <div class="alert alert-block">
         <a class="close" data-dismiss="alert" href="#">x</a>
         <h4 class="alert-heading">Attention!</h4>
-        @TempData[Alerts.ATTENTION]
+        @Alerter.GetMessageFor(Alert.Attention)
     </div>
 }
-@foreach(var key in Alerts.ALL.Except(new[] {Alerts.ATTENTION}))
+
+@foreach (var alert in EnumExtensions.All<Alert>().Where(Alerter.HasAlert).Except(new [] { Alert.Attention }))
 {
-    if (TempData.ContainsKey(key))
-    {
-        <div class="alert alert-@key">
-            <button type="button" class="close" data-dismiss="alert">x</button>
-            @TempData[key]
-        </div>
-    }
+    <div class="alert alert-@Alerter.GetCssClassFor(alert)">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        @Alerter.GetMessageFor(alert)
+    </div>
 }

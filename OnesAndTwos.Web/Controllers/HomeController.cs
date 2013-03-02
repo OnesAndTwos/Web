@@ -1,24 +1,34 @@
 ﻿using System.Web.Mvc;
+using OnesAndTwos.Web.Support;
 
 namespace OnesAndTwos.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IAlert _alerter;
+
+        public HomeController(IAlert alerter)
+        {
+            _alerter = alerter;
+        }
+
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            _alerter.RaiseError("Error");
+            _alerter.RaiseInformation("Information");
+            _alerter.RaiseSuccess("Success");
+            _alerter.RaiseAttention("Attention");
+
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
             return View();
         }
     }
