@@ -1,0 +1,14 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    albacore (0.3.5)
+      rubyzip
+    nokogiri (1.5.6-x86-mingw32)
+    rubyzip (0.9.9)
+
+PLATFORMS
+  x86-mingw32
+
+DEPENDENCIES
+  albacore
+  nokogiri
